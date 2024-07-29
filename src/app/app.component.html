@@ -1,15 +1,14 @@
- <!-- product-list.component.html -->
+<!-- product-list.component.html -->
 
- <div>
-  <label for="items">How much items need in one page:  </label>
+<div>
+  <label for="items">How much items need in one page:</label>
   <input type="number" [(ngModel)]="itemsPerPage" (change)="refreshPage()">
- </div>
- <br>
- <br>
-
+</div>
+<br>
+<br>
 
 <div class="product-list">
-  <table >
+  <table>
     <thead>
       <tr>
         <th>ID</th>
@@ -31,39 +30,27 @@
       </tr>
     </tbody>
   </table>
-  <br>
-  <br>
-  <br>
+  
+ 
   <!-- Go to Page Input -->
   <div class="go-to-page">
     <label for="goToPage">Go to Page:</label>
     <input type="number" id="goToPage" [(ngModel)]="goToPageNumber" (change)="goToSpecificPage()">
   </div>
-  <br>
 
-
-    <!-- Display range and total items -->
-    <div class="item-range">
-      <h1>Showing {{ rangeStart }}-{{ rangeEnd }} of {{ products.length }} items</h1>
-    </div>
-
-<!-- Pagination Component -->
-<div class="pagination">
-  <div class="box" (click)="goToFirstPage()">First</div>
-
-  <button class="box" [disabled]="pageNumber == 1" (click)="previousPage()"> &lt; </button>
-  <div class="box" *ngFor="let page of pageNumberArray" [ngClass]="{'selected': page == pageNumber}">
-{{page}}  </div>
-  <!-- <div class="box"  >
-    3
+  <!-- Display range and total items -->
+  <div class="item-range">
+    <h1>Showing {{ rangeStart }}-{{ rangeEnd }} of {{ products.length }} items</h1>
   </div>
-   <div class="box"  >
-    4
-  </div> -->
-  <button class="box" [disabled]="pageNumber == totalNoOfPages" (click)="nextPage()"> &gt; </button>
-  <div class="box" (click)="goToLastPage()">Last</div>
 
-</div>
-
-
+  <!-- Pagination Component -->
+  <div class="pagination">
+    <div class="box" (click)="goToFirstPage()">First</div>
+    <button class="box" [disabled]="pageNumber == 1" (click)="previousPage()"> &lt; </button>
+    <div class="box" *ngFor="let page of pageNumberArray" [ngClass]="{'selected': page == pageNumber}" (click)="goToPage(page)">
+      {{page}}
+    </div>
+    <button class="box" [disabled]="pageNumber == totalNoOfPages" (click)="nextPage()"> &gt; </button>
+    <div class="box" (click)="goToLastPage()">Last</div>
+  </div>
 </div>
