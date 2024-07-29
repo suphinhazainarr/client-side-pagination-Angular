@@ -63,9 +63,11 @@ nextPage() {
   this.rangeStart = (this.pageNumber - 1) * this.itemsPerPage + 1;
     this.rangeEnd = Math.min(this.pageNumber * this.itemsPerPage, this.products.length);
 }
-goToPage(_t26: any) {
-throw new Error('Method not implemented.');
-}
+goToPage(no: any) {
+  if (no >= 1 && no <= this.totalNoOfPages) {
+    this.pageNumber = no;
+    this.refreshPage();
+  }}
 
 previousPage() {
   if(this.pageNumber>1){ this.pageNumber = this.pageNumber - 1;

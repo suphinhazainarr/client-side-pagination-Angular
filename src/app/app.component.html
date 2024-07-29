@@ -46,7 +46,7 @@
   <!-- Pagination Component -->
   <div class="pagination">
     <div class="box" (click)="goToFirstPage()">First</div>
-    <button class="box" [disabled]="pageNumber == 1" (click)="previousPage()"> &lt; </button>
+    <button class="box" [disabled]="pageNumber == 1" (click)="previousPage()"  > &lt; </button>
     <div class="box" *ngFor="let page of pageNumberArray" [ngClass]="{'selected': page == pageNumber}" (click)="goToPage(page)">
       {{page}}
     </div>
